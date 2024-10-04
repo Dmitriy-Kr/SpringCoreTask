@@ -3,18 +3,31 @@ package edu.java.springcoretask.entity;
 import java.util.Objects;
 
 public abstract class User {
-    String firstName;
-    String lastName;
-    String userName;
-    String password;
-    boolean isActive;
+    private long id;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String password;
+    private boolean isActive;
 
-    public User(String firstName, String lastName, String userName, String password, boolean isActive) {
+    public User() {
+    }
+
+    public User(long id, String firstName, String lastName, String userName, String password, boolean isActive) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.isActive = isActive;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -64,18 +77,19 @@ public abstract class User {
             return false;
         }
         User user = (User) o;
-        return isActive() == user.isActive() && getFirstName().equals(user.getFirstName()) && getLastName().equals(user.getLastName()) && getUserName().equals(user.getUserName()) && getPassword().equals(user.getPassword());
+        return getId() == user.getId() && isActive() == user.isActive() && getFirstName().equals(user.getFirstName()) && getLastName().equals(user.getLastName()) && getUserName().equals(user.getUserName()) && getPassword().equals(user.getPassword());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFirstName(), getLastName(), getUserName(), getPassword(), isActive());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getUserName(), getPassword(), isActive());
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +

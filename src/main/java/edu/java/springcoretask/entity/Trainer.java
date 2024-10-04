@@ -3,13 +3,28 @@ package edu.java.springcoretask.entity;
 import java.util.Objects;
 
 public class Trainer extends User {
-    long userId;
-    TrainingType specialization;
+    private long id;
+    private long userId;
+    private TrainingType specialization;
 
-    public Trainer(String firstName, String lastName, String userName, String password, boolean isActive, long userId, TrainingType specialization) {
-        super(firstName, lastName, userName, password, isActive);
+    public Trainer() {
+    }
+
+    public Trainer(long id, String firstName, String lastName, String userName, String password, boolean isActive, long id1, long userId, TrainingType specialization) {
+        super(id, firstName, lastName, userName, password, isActive);
+        this.id = id1;
         this.userId = userId;
         this.specialization = specialization;
+    }
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getUserId() {
@@ -36,24 +51,20 @@ public class Trainer extends User {
         }
         if (!super.equals(o)) return false;
         Trainer trainer = (Trainer) o;
-        return getUserId() == trainer.getUserId() && getSpecialization() == trainer.getSpecialization();
+        return getId() == trainer.getId() && getUserId() == trainer.getUserId() && getSpecialization().equals(trainer.getSpecialization());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getUserId(), getSpecialization());
+        return Objects.hash(super.hashCode(), getId(), getUserId(), getSpecialization());
     }
 
     @Override
     public String toString() {
         return "Trainer{" +
-                "userId=" + userId +
+                "id=" + id +
+                ", userId=" + userId +
                 ", specialization=" + specialization +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", isActive=" + isActive +
-                '}';
+                "} " + super.toString();
     }
 }
