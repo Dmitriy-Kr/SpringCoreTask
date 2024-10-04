@@ -3,8 +3,11 @@ package edu.java.springcoretask.entity;
 import java.util.Objects;
 
 public class Trainer extends User {
-    long userId;
-    TrainingType specialization;
+    private long userId;
+    private TrainingType specialization;
+
+    public Trainer() {
+    }
 
     public Trainer(String firstName, String lastName, String userName, String password, boolean isActive, long userId, TrainingType specialization) {
         super(firstName, lastName, userName, password, isActive);
@@ -49,11 +52,6 @@ public class Trainer extends User {
         return "Trainer{" +
                 "userId=" + userId +
                 ", specialization=" + specialization +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", isActive=" + isActive +
-                '}';
+                "} " + super.toString();
     }
 }

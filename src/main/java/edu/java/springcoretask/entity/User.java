@@ -3,11 +3,14 @@ package edu.java.springcoretask.entity;
 import java.util.Objects;
 
 public abstract class User {
-    String firstName;
-    String lastName;
-    String userName;
-    String password;
-    boolean isActive;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String password;
+    private boolean isActive;
+
+    public User() {
+    }
 
     public User(String firstName, String lastName, String userName, String password, boolean isActive) {
         this.firstName = firstName;
