@@ -1,0 +1,63 @@
+[{
+  "id": 1,
+  "firstName": "Dave",
+  "lastName": "Batista",
+  "userName": "Dave.Batista",
+  "password": "1234567895",
+  "isActive": true
+},
+ {
+   "id": 2,
+  "firstName": "Igor",
+   "lastName": "Gura",
+   "userName": "Igor.Gura",
+   "password": "1238517895",
+   "isActive": true},
+  {
+    "id": 51,
+    "firstName": "Allyson",
+    "lastName": "Bauer",
+    "userName": "Allyson.Bauer",
+    "password": 1753706703,
+    "isActive": false
+  },
+  {
+    "id": 11,
+    "firstName": "Mari",
+    "lastName": "Doyle",
+    "userName": "Mari.Doyle",
+    "password": 2773691339,
+    "isActive": false
+  },
+  {
+    "id": 29,
+    "firstName": "Shannon",
+    "lastName": "Velazquez",
+    "userName": "Shannon.Velazquez",
+    "password": 9434733830,
+    "isActive": false
+  },
+  {
+    "id": 19,
+    "firstName": "Lorna",
+    "lastName": "Levine",
+    "userName": "Lorna.Levine",
+    "password": 5818770403,
+    "isActive": true
+  },
+  {
+    "id": 10,
+    "firstName": "Bertie",
+    "lastName": "Gay",
+    "userName": "Bertie.Gay",
+    "password": 7853861344,
+    "isActive": false
+  },
+  {
+    "id": 23,
+    "firstName": "Lambert",
+    "lastName": "Marquez",
+    "userName": "Lambert.Marquez",
+    "password": 8480399175,
+    "isActive": false
+  }]

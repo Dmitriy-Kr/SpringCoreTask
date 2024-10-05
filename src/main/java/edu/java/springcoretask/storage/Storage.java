@@ -7,6 +7,13 @@ import java.util.Map;
 public class Storage <T>{
     private Map<Long,T> storage;
 
+    public Storage() {
+    }
+
+    public void setStorage(Map<Long, T> storage) {
+        this.storage = storage;
+    }
+
     public Storage(Map<Long, T> storage) {
         this.storage = storage;
     }
