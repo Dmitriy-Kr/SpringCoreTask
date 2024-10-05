@@ -2,7 +2,7 @@ package edu.java.springcoretask.entity;
 
 import java.util.Objects;
 
-public abstract class User {
+public class User {
     private long id;
     private String firstName;
     private String lastName;
@@ -66,7 +66,7 @@ public abstract class User {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         isActive = active;
     }
 
