@@ -1,13 +1,14 @@
 package edu.java.springcoretask.utility;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import edu.java.springcoretask.entity.Trainee;
+import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.entity.Training;
 import edu.java.springcoretask.entity.User;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,7 +18,13 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class JsonToObject {
-    static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = getObjectMapper();
+
+    private static ObjectMapper getObjectMapper(){
+        ObjectMapper objectMapperConfig = new ObjectMapper();
+        objectMapperConfig.registerModule(new JavaTimeModule());
+        return objectMapperConfig;
+    }
 
     private static <T> List<T> jsonFileToObjectList (String path, Class<T> clazz){
 
@@ -51,4 +58,6 @@ public class JsonToObject {
         return trainingList.stream().collect(Collectors.toMap(Training::getId, Function.identity()));
 
     }
+
+
 }

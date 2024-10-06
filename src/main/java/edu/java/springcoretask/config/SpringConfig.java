@@ -1,6 +1,6 @@
 package edu.java.springcoretask.config;
 
-import edu.java.springcoretask.storage.UserStorage;
+import edu.java.springcoretask.storage.TraineeStorage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -9,8 +9,13 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:init_storage.properties")
 public class SpringConfig {
 
+//    @Bean
+//    public UserStorage userStorage() {
+//        return new UserStorage();
+//    }
+
     @Bean
-    public UserStorage userStorage() {
-        return new UserStorage();
+    public TraineeStorage traineeStorage() {
+        return new TraineeStorage();
     }
 }
