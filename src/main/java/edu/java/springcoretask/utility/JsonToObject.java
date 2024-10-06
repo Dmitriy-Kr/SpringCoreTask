@@ -3,8 +3,6 @@ package edu.java.springcoretask.utility;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import edu.java.springcoretask.entity.Trainee;
-import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.entity.Training;
 import edu.java.springcoretask.entity.User;
 

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 67,
+    "firstName": "Ward",
+    "lastName": "Mejia",
+    "userName": "Ward.Mejia",
+    "password": 8155945829,
+    "specialization": "yoga",
+    "isActive": true
+  },
+  {
+    "id": 78,
+    "firstName": "Kathleen",
+    "lastName": "Carr",
+    "userName": "Kathleen.Carr",
+    "password": 7545019305,
+    "specialization": "stretching",
+    "isActive": false
+  },
+  {
+    "id": 75,
+    "firstName": "Coleman",
+    "lastName": "Yates",
+    "userName": "Coleman.Yates",
+    "password": 4415125129,
+    "specialization": "Zumba",
+    "isActive": true
+  },
+  {
+    "id": 81,
+    "firstName": "Frazier",
+    "lastName": "Richards",
+    "userName": "Frazier.Richards",
+    "password": 4946535140,
+    "specialization": "stretching",
+    "isActive": false
+  },
+  {
+    "id": 97,
+    "firstName": "Myrna",
+    "lastName": "Estrada",
+    "userName": "Myrna.Estrada",
+    "password": 5952019021,
+    "specialization": "resistance",
+    "isActive": false
+  }
+]

@@ -35,7 +35,9 @@ public class Trainee extends User{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Trainee)) return false;
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
         if (!super.equals(o)) return false;
         Trainee trainee = (Trainee) o;
         return getDateOfBirth().equals(trainee.getDateOfBirth()) && getAddress().equals(trainee.getAddress());
