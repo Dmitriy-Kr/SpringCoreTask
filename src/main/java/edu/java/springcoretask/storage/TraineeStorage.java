@@ -13,4 +13,9 @@ public class TraineeStorage extends Storage<Trainee>{
     public void init() {
         setStorage(JsonToObject.getUserMapFromJson(path, Trainee.class));
     }
+
+    @Override
+    public Trainee getByUserName(String userName) {
+        return storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny().get();
+    }
 }

@@ -13,4 +13,9 @@ public class TrainingStorage extends Storage<Training>{
     public void init() {
         setStorage(JsonToObject.getTrainingMapFromJson(path, Training.class));
     }
+
+    @Override
+    public Training getByUserName(String userName) {
+        return null;
+    }
 }

@@ -1,5 +1,7 @@
 package edu.java.springcoretask.config;
 
+import edu.java.springcoretask.dao.TraineeDAO;
+import edu.java.springcoretask.service.TraineeService;
 import edu.java.springcoretask.storage.TraineeStorage;
 import edu.java.springcoretask.storage.TrainerStorage;
 import edu.java.springcoretask.storage.TrainingStorage;
@@ -13,6 +15,14 @@ public class SpringConfig {
     @Bean
     public TraineeStorage traineeStorage() {
         return new TraineeStorage();
+    }
+    @Bean
+    public TraineeDAO traineeDAO(){
+        return new TraineeDAO();
+    }
+    @Bean
+    public TraineeService traineeService(){
+        return new TraineeService();
     }
 
     @Bean

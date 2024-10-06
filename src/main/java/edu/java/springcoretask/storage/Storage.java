@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Storage <T>{
-    private Map<Long,T> storage;
+public abstract class Storage <T>{
+    protected Map<Long,T> storage;
 
     public Storage() {
     }
 
-    public void setStorage(Map<Long, T> storage) {
+    public Storage(Map<Long, T> storage) {
         this.storage = storage;
     }
 
-    public Storage(Map<Long, T> storage) {
+    public void setStorage(Map<Long, T> storage) {
         this.storage = storage;
     }
 
@@ -22,11 +22,39 @@ public class Storage <T>{
         return new ArrayList<>(storage.values());
     }
 
-    public void put(long key, T value){
+    /**
+     * Put value to the storage Map<Long, T>
+     * @param value
+     * @return key
+     */
+    public long put(T value){
+        long key = getNewKey();
         storage.put(key, value);
+        return key;
+    }
+    public T update(long key, T value){
+        return storage.put(key, value);
     }
 
-    public T getValue(long key){
-        return storage.get(key);
+    public T delete(long key){
+        return storage.remove(key);
+    }
+
+    public abstract T getByUserName(String userName);
+
+    /**
+     * Generate new key for Map
+     * @return long key
+     */
+    private long getNewKey(){
+        long key = 0;
+
+        for(key = Long.MIN_VALUE; key < Long.MAX_VALUE; key++){
+            if(!storage.containsKey(key)){
+                break;
+            }
+        }
+
+        return key;
     }
 }
