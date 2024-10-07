@@ -10,17 +10,19 @@ public class Training {
     private String trainingName;
     private TrainingType trainingType;
     private LocalDate trainingDay;
+    private int trainingDuration;
 
     public Training() {
     }
 
-    public Training(long id, long traineeId, long trainerId, String trainingName, TrainingType trainingType, LocalDate trainingDay) {
+    public Training(long id, long traineeId, long trainerId, String trainingName, TrainingType trainingType, LocalDate trainingDay, int trainingDuration) {
         this.id = id;
         this.traineeId = traineeId;
         this.trainerId = trainerId;
         this.trainingName = trainingName;
         this.trainingType = trainingType;
         this.trainingDay = trainingDay;
+        this.trainingDuration = trainingDuration;
     }
 
     public long getId() {
@@ -71,6 +73,14 @@ public class Training {
         this.trainingDay = trainingDay;
     }
 
+    public int getTrainingDuration() {
+        return trainingDuration;
+    }
+
+    public void setTrainingDuration(int trainingDuration) {
+        this.trainingDuration = trainingDuration;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,12 +88,12 @@ public class Training {
             return false;
         }
         Training training = (Training) o;
-        return getId() == training.getId() && getTraineeId() == training.getTraineeId() && getTrainerId() == training.getTrainerId() && getTrainingName().equals(training.getTrainingName()) && getTrainingType().equals(training.getTrainingType()) && getTrainingDay().equals(training.getTrainingDay());
+        return getId() == training.getId() && getTraineeId() == training.getTraineeId() && getTrainerId() == training.getTrainerId() && getTrainingDuration() == training.getTrainingDuration() && getTrainingName().equals(training.getTrainingName()) && getTrainingType().equals(training.getTrainingType()) && getTrainingDay().equals(training.getTrainingDay());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTraineeId(), getTrainerId(), getTrainingName(), getTrainingType(), getTrainingDay());
+        return Objects.hash(getId(), getTraineeId(), getTrainerId(), getTrainingName(), getTrainingType(), getTrainingDay(), getTrainingDuration());
     }
 
     @Override
@@ -95,6 +105,7 @@ public class Training {
                 ", trainingName='" + trainingName + '\'' +
                 ", trainingType=" + trainingType +
                 ", trainingDay=" + trainingDay +
+                ", trainingDuration=" + trainingDuration +
                 '}';
     }
 }

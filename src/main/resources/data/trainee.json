@@ -1,0 +1,79 @@
+[{
+  "id": 1,
+  "firstName": "Dave",
+  "lastName": "Batista",
+  "userName": "Dave.Batista",
+  "password": "1234567895",
+  "dateOfBirth": "2008-08-06",
+  "address": "467 Boerum Street, Bedias, Mississippi, 8314",
+  "isActive": true
+},
+  {
+    "id": 2,
+    "firstName": "Igor",
+    "lastName": "Gura",
+    "userName": "Igor.Gura",
+    "password": "1238517895",
+    "dateOfBirth": "2002-06-11",
+    "address": "745 Senator Street, Abiquiu, Northern Mariana Islands, 5722",
+    "isActive": true},
+  {
+    "id": 51,
+    "firstName": "Allyson",
+    "lastName": "Bauer",
+    "userName": "Allyson.Bauer",
+    "password": 1753706703,
+    "dateOfBirth": "1983-11-12",
+    "address": "491 Crosby Avenue, Marenisco, Arkansas, 2771",
+    "isActive": false
+  },
+  {
+    "id": 11,
+    "firstName": "Mari",
+    "lastName": "Doyle",
+    "userName": "Mari.Doyle",
+    "password": 2773691339,
+    "dateOfBirth": "1988-12-02",
+    "address": "139 Micieli Place, Corriganville, Florida, 3783",
+    "isActive": false
+  },
+  {
+    "id": 29,
+    "firstName": "Shannon",
+    "lastName": "Velazquez",
+    "userName": "Shannon.Velazquez",
+    "password": 9434733830,
+    "dateOfBirth": "1999-10-05",
+    "address": "933 Dewey Place, Northchase, District Of Columbia, 1061",
+    "isActive": false
+  },
+  {
+    "id": 19,
+    "firstName": "Lorna",
+    "lastName": "Levine",
+    "userName": "Lorna.Levine",
+    "password": 5818770403,
+    "dateOfBirth": "1986-07-20",
+    "address": "460 Tillary Street, Waterview, Federated States Of Micronesia, 1135",
+    "isActive": true
+  },
+  {
+    "id": 10,
+    "firstName": "Bertie",
+    "lastName": "Gay",
+    "userName": "Bertie.Gay",
+    "password": 7853861344,
+    "dateOfBirth": "2006-01-15",
+    "address": "597 Midwood Street, Zarephath, Marshall Islands, 3191",
+    "isActive": false
+  },
+  {
+    "id": 23,
+    "firstName": "Lambert",
+    "lastName": "Marquez",
+    "userName": "Lambert.Marquez",
+    "password": 8480399175,
+    "dateOfBirth": "2005-05-16",
+    "address": "517 Highwood Street, Zarephath, Marshall Islands, 3294",
+    "isActive": false
+  }]

@@ -4,46 +4,24 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Trainee extends User{
-    private long id;
-    private long userId;
-    private LocalDate fateOfBirth;
+    private LocalDate dateOfBirth;
     private String address;
 
     public Trainee() {
     }
 
-    public Trainee(long id, String firstName, String lastName, String userName, String password, boolean isActive, long id1, long userId, LocalDate fateOfBirth, String address) {
+    public Trainee(long id, String firstName, String lastName, String userName, String password, boolean isActive, LocalDate dateOfBirth, String address) {
         super(id, firstName, lastName, userName, password, isActive);
-        this.id = id1;
-        this.userId = userId;
-        this.fateOfBirth = fateOfBirth;
+        this.dateOfBirth = dateOfBirth;
         this.address = address;
     }
 
-    @Override
-    public long getId() {
-        return id;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    @Override
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public LocalDate getFateOfBirth() {
-        return fateOfBirth;
-    }
-
-    public void setFateOfBirth(LocalDate fateOfBirth) {
-        this.fateOfBirth = fateOfBirth;
+    public void setDateOfBirth(LocalDate fateOfBirth) {
+        this.dateOfBirth = fateOfBirth;
     }
 
     public String getAddress() {
@@ -62,20 +40,18 @@ public class Trainee extends User{
         }
         if (!super.equals(o)) return false;
         Trainee trainee = (Trainee) o;
-        return getId() == trainee.getId() && getUserId() == trainee.getUserId() && getFateOfBirth().equals(trainee.getFateOfBirth()) && getAddress().equals(trainee.getAddress());
+        return getDateOfBirth().equals(trainee.getDateOfBirth()) && getAddress().equals(trainee.getAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getId(), getUserId(), getFateOfBirth(), getAddress());
+        return Objects.hash(super.hashCode(), getDateOfBirth(), getAddress());
     }
 
     @Override
     public String toString() {
         return "Trainee{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", fateOfBirth=" + fateOfBirth +
+                "dateOfBirth=" + dateOfBirth +
                 ", address='" + address + '\'' +
                 "} " + super.toString();
     }

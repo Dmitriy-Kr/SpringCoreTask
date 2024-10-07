@@ -1,0 +1,56 @@
+[
+{
+  "id": 34,
+  "traineeId": 1,
+  "trainerId": 78,
+  "trainingName": "aerobics",
+  "trainingType": "fitness",
+  "trainingDay": "2024-03-21",
+  "trainingDuration": 150
+},
+{
+"id": 49,
+"traineeId": 2,
+"trainerId": 97,
+"trainingName": "pilates",
+"trainingType": "resistance",
+"trainingDay": "2024-12-28",
+"trainingDuration": 90
+},
+{
+"id": 36,
+"traineeId": 51,
+"trainerId": 75,
+"trainingName": "Zumba step",
+"trainingType": "Zumba",
+"trainingDay": "2024-08-27",
+"trainingDuration": 60
+},
+{
+"id": 7,
+"traineeId": 11,
+"trainerId": 67,
+"trainingName": "vinyasa",
+"trainingType": "yoga",
+"trainingDay": "2024-09-30",
+"trainingDuration": 150
+},
+{
+"id": 60,
+"traineeId": 29,
+"trainerId": 81,
+"trainingName": "dynamic stretching",
+"trainingType": "stretching",
+"trainingDay": "2020-11-07",
+"trainingDuration": 60
+},
+{
+"id": 65,
+"traineeId": 10,
+"trainerId": 81,
+"trainingName": "isometric stretching",
+"trainingType": "stretching",
+"trainingDay": "2019-03-11",
+"trainingDuration": 45
+}
+]
