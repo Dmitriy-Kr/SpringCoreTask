@@ -5,6 +5,7 @@ import edu.java.springcoretask.utility.JsonToObject;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
+import java.util.Optional;
 
 public class TraineeStorage extends AbstractUserStorage<Trainee>{
     @Value("${trainee_storage_path}")
@@ -15,7 +16,7 @@ public class TraineeStorage extends AbstractUserStorage<Trainee>{
     }
 
     @Override
-    public Trainee getByUserName(String userName) {
-        return storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny().orElse(new Trainee(-100));
+    public Optional<Trainee> getByUserName(String userName) {
+        return storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny();
     }
 }

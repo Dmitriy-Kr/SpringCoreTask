@@ -21,16 +21,21 @@ public class TrainerService {
     }
 
     public Trainer select(String userName) {
-        return trainerDAO.select(userName);
+        return trainerDAO.select(userName).orElse(new Trainer(-100));
     }
 
     private String createValidUserName(Trainer trainer) {
         String userName = trainer.getFirstName() + "." + trainer.getLastName();
+
+        if (select(userName).getId() < 0) {
+            return userName;
+        }
+
         for (long i = 0; i < Long.MAX_VALUE; i++) {
-            if (select(userName).getId() < 0) {
-                return userName;
+            StringBuilder newUserName = new StringBuilder(userName + i);
+            if (select(newUserName.toString()).getId() < 0) {
+                return newUserName.toString();
             }
-            userName += i;
         }
         return userName;
     }

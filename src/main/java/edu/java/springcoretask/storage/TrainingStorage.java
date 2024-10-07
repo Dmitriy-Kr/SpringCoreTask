@@ -1,5 +1,7 @@
 package edu.java.springcoretask.storage;
 
+import edu.java.springcoretask.entity.Trainee;
+import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.entity.Training;
 import edu.java.springcoretask.utility.JsonToObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +34,8 @@ public class TrainingStorage extends AbstractTrainingStorage<Training> {
 
     @Override
     public List<Training> getByUserName(String userName) {
-        long traineeId = traineeStorage.getByUserName(userName).getId();
-        long trainerId = trainerStorage.getByUserName(userName).getId();
+        long traineeId = traineeStorage.getByUserName(userName).orElse(new Trainee(-100)).getId();
+        long trainerId = trainerStorage.getByUserName(userName).orElse(new Trainer(-100)).getId();
         return storage.values().stream().filter(e -> traineeId == e.getTraineeId() || trainerId == e.getTrainerId()).collect(Collectors.toList());
     }
 }

@@ -5,6 +5,7 @@ import edu.java.springcoretask.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public abstract class AbstractUserStorage <T extends User>{
     protected Map<Long,T> storage;
@@ -42,7 +43,7 @@ public abstract class AbstractUserStorage <T extends User>{
         return storage.remove(key);
     }
 
-    public abstract T getByUserName(String userName);
+    public abstract Optional<T> getByUserName(String userName);
 
     /**
      * Generate new key for Map

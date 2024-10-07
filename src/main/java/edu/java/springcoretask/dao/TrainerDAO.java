@@ -4,6 +4,8 @@ import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.storage.TrainerStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class TrainerDAO {
     @Autowired
     private TrainerStorage trainerStorage;
@@ -24,7 +26,7 @@ public class TrainerDAO {
         trainerStorage.update(trainer.getId(), trainer);
     }
 
-    public Trainer select(String userName) {
+    public Optional<Trainer> select(String userName) {
         return trainerStorage.getByUserName(userName);
     }
 }

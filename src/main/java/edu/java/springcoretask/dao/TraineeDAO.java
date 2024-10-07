@@ -4,6 +4,8 @@ import edu.java.springcoretask.entity.Trainee;
 import edu.java.springcoretask.storage.TraineeStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class TraineeDAO {
     @Autowired
     private TraineeStorage traineeStorage;
@@ -28,7 +30,7 @@ public class TraineeDAO {
         return traineeStorage.delete(trainee.getId());
     }
 
-    public Trainee select(String userName) {
+    public Optional<Trainee> select(String userName) {
         return traineeStorage.getByUserName(userName);
     }
 }
