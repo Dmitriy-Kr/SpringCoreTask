@@ -2,20 +2,38 @@ package edu.java.springcoretask.storage;
 
 import edu.java.springcoretask.entity.Training;
 import edu.java.springcoretask.utility.JsonToObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class TrainingStorage extends Storage<Training>{
+public class TrainingStorage extends AbstractTrainingStorage<Training> {
     @Value("${training_storage_path}")
     private String path;
+    private TraineeStorage traineeStorage;
+    private TrainerStorage trainerStorage;
+
+    @Autowired
+    public void setTraineeStorage(TraineeStorage traineeStorage) {
+        this.traineeStorage = traineeStorage;
+    }
+
+    @Autowired
+    public void setTrainerStorage(TrainerStorage trainerStorage) {
+        this.trainerStorage = trainerStorage;
+    }
+
     @PostConstruct
     public void init() {
         setStorage(JsonToObject.getTrainingMapFromJson(path, Training.class));
     }
 
     @Override
-    public Training getByUserName(String userName) {
-        return null;
+    public List<Training> getByUserName(String userName) {
+        long traineeId = traineeStorage.getByUserName(userName).getId();
+        long trainerId = trainerStorage.getByUserName(userName).getId();
+        return storage.values().stream().filter(e -> traineeId == e.getTraineeId() || trainerId == e.getTrainerId()).collect(Collectors.toList());
     }
 }

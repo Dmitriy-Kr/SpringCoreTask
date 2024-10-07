@@ -8,6 +8,10 @@ public class Trainer extends User {
     public Trainer() {
     }
 
+    public Trainer(long id) {
+        super(id);
+    }
+
     public Trainer(long id, String firstName, String lastName, String userName, String password, boolean isActive, TrainingType specialization) {
         super(id, firstName, lastName, userName, password, isActive);
         this.specialization = specialization;

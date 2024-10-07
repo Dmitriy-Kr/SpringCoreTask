@@ -10,6 +10,16 @@ public class Trainee extends User{
     public Trainee() {
     }
 
+    public Trainee(long id) {
+        super(id);
+    }
+
+    public Trainee(String firstName, String lastName, LocalDate dateOfBirth, String address) {
+        super(firstName, lastName);
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+    }
+
     public Trainee(long id, String firstName, String lastName, String userName, String password, boolean isActive, LocalDate dateOfBirth, String address) {
         super(id, firstName, lastName, userName, password, isActive);
         this.dateOfBirth = dateOfBirth;

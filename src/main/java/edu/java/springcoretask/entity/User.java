@@ -13,6 +13,15 @@ public class User {
     public User() {
     }
 
+    public User(long id) {
+        this.id = id;
+    }
+
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public User(long id, String firstName, String lastName, String userName, String password, boolean isActive) {
         this.id = id;
         this.firstName = firstName;

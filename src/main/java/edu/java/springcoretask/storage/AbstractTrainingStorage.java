@@ -1,16 +1,18 @@
 package edu.java.springcoretask.storage;
 
+import edu.java.springcoretask.entity.Training;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Storage <T>{
+public abstract class AbstractTrainingStorage<T extends Training>{
     protected Map<Long,T> storage;
 
-    public Storage() {
+    public AbstractTrainingStorage() {
     }
 
-    public Storage(Map<Long, T> storage) {
+    public AbstractTrainingStorage(Map<Long, T> storage) {
         this.storage = storage;
     }
 
@@ -40,7 +42,7 @@ public abstract class Storage <T>{
         return storage.remove(key);
     }
 
-    public abstract T getByUserName(String userName);
+    public abstract List<T> getByUserName(String userName);
 
     /**
      * Generate new key for Map

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
 
-public class TraineeStorage extends Storage<Trainee>{
+public class TraineeStorage extends AbstractUserStorage<Trainee>{
     @Value("${trainee_storage_path}")
     private String path;
     @PostConstruct
@@ -16,6 +16,6 @@ public class TraineeStorage extends Storage<Trainee>{
 
     @Override
     public Trainee getByUserName(String userName) {
-        return storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny().get();
+        return storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny().orElse(new Trainee(-100));
     }
 }
