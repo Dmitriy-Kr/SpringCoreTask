@@ -26,7 +26,7 @@ public abstract class AbstractUserStorage <T extends User>{
 
     /**
      * Put value to the storage Map<Long, T>
-     * @param value
+     * @param value to put into the storage
      * @return key
      */
     public long put(T value){
