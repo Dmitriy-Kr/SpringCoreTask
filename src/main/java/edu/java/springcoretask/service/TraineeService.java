@@ -8,14 +8,6 @@ public class TraineeService {
     @Autowired
     private TraineeDAO traineeDAO;
 
-    public TraineeService() {
-    }
-
-    //@Autowired
-    public TraineeService(TraineeDAO traineeDAO) {
-        this.traineeDAO = traineeDAO;
-    }
-
     public void create(Trainee trainee) {
         traineeDAO.create(trainee);
     }

@@ -8,14 +8,6 @@ public class TraineeDAO {
     @Autowired
     private TraineeStorage traineeStorage;
 
-    public TraineeDAO() {
-    }
-
-    //@Autowired
-    public TraineeDAO(TraineeStorage traineeStorage) {
-        this.traineeStorage = traineeStorage;
-    }
-
     /**
      * Place the Trainee object into the Trainee storage and set the returned key to the Trainee.
      *

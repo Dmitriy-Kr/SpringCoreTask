@@ -16,6 +16,6 @@ public class TrainerStorage extends Storage<Trainer> {
 
     @Override
     public Trainer getByUserName(String userName) {
-        return null;
+        return storage.values().stream().filter(e -> userName.equals(e.getUserName())).findAny().get();
     }
 }
