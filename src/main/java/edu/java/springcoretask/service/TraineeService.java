@@ -52,7 +52,7 @@ public class TraineeService {
             logger.info("Trainee updated with id {}", trainee.getId());
 
         } else {
-            logger.info("No such element present in the store Trainee with userName {}", trainee.getUserName());
+            logger.error("No such element present in the store Trainee with userName {}", trainee.getUserName());
             throw new RuntimeException("No such element present in the Trainee store");
         }
     }

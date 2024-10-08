@@ -51,7 +51,7 @@ public abstract class AbstractTrainingStorage<T extends Training>{
     private long getNewKey(){
         long key = 0;
 
-        for(key = Long.MIN_VALUE; key < Long.MAX_VALUE; key++){
+        for(; key < Long.MAX_VALUE; key++){
             if(!storage.containsKey(key)){
                 break;
             }

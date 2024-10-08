@@ -154,6 +154,12 @@ public class Main {
 
         System.out.println("--------------------- Create Training ------------------------------");
 
+        Training newTraining = new Training(60, 23, 67, "some training", new TrainingType("yoga"), LocalDate.parse("2024-12-27"), 60);
 
+        trainingService.create(newTraining);
+
+        for (Training training : trainingStorage.getAllValues()) {
+            System.out.println(training);
+        }
     }
 }

@@ -1,9 +1,10 @@
 package edu.java.springcoretask.service;
 
 import edu.java.springcoretask.dao.TrainerDAO;
-import edu.java.springcoretask.entity.Trainee;
 import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.utility.PasswordGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Optional;
 public class TrainerService {
     @Autowired
     private TrainerDAO trainerDAO;
+    private static Logger logger = LoggerFactory.getLogger(TraineeService.class);
 
     public void create(Trainer trainer) {
         trainer.setUserName(createValidUserName(trainer));
@@ -18,6 +20,8 @@ public class TrainerService {
         trainer.setIsActive(true);
 
         trainerDAO.create(trainer);
+
+        logger.info("Trainer created with id {}", trainer.getId());
     }
 
     public void update(Trainer trainer) {
@@ -44,10 +48,10 @@ public class TrainerService {
 
             trainerDAO.update(updatedTrainer);
 
-//            logger.info("Trainer updated with id {}", trainer.getId());
+            logger.info("Trainer with id {} updated ", trainer.getId());
 
         } else {
-//            logger.info("No such element present in the store Trainer with userName {}", trainer.getUserName());
+            logger.error("No such element present in the store Trainer with userName {}", trainer.getUserName());
             throw new RuntimeException("No such element present in the Trainer store");
         }
     }
