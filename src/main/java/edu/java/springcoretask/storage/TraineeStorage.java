@@ -17,6 +17,10 @@ public class TraineeStorage extends AbstractUserStorage<Trainee>{
 
     @Override
     public Optional<Trainee> getByUserName(String userName) {
-        return storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny();
+
+        Optional<Trainee> foundTrainee = storage.values().stream().filter(trainee -> userName.equals(trainee.getUserName())).findAny();
+
+        return foundTrainee.map(Trainee::new);
+
     }
 }

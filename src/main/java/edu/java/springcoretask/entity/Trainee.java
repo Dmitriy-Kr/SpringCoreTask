@@ -26,6 +26,12 @@ public class Trainee extends User{
         this.address = address;
     }
 
+    public Trainee(Trainee trainee) {
+        super(trainee.getId(), trainee.getFirstName(), trainee.getLastName(), trainee.getUserName(), trainee.getPassword(), trainee.isActive());
+        this.dateOfBirth = trainee.dateOfBirth;
+        this.address = trainee.address;
+    }
+
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }

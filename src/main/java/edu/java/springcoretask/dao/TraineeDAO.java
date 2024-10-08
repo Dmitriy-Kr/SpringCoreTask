@@ -22,8 +22,8 @@ public class TraineeDAO {
         return true;
     }
 
-    public void update(Trainee trainee) {
-        traineeStorage.update(trainee.getId(), trainee);
+    public void update(Trainee updatedTrainee) {
+        traineeStorage.update(updatedTrainee.getId(), updatedTrainee);
     }
 
     public Trainee delete(Trainee trainee) {
