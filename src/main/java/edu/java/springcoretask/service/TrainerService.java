@@ -1,9 +1,12 @@
 package edu.java.springcoretask.service;
 
 import edu.java.springcoretask.dao.TrainerDAO;
+import edu.java.springcoretask.entity.Trainee;
 import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.utility.PasswordGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 public class TrainerService {
     @Autowired
@@ -13,11 +16,40 @@ public class TrainerService {
         trainer.setUserName(createValidUserName(trainer));
         trainer.setPassword(PasswordGenerator.generatePassword());
         trainer.setIsActive(true);
+
         trainerDAO.create(trainer);
     }
 
     public void update(Trainer trainer) {
-        trainerDAO.update(trainer);
+        Optional<Trainer> optionalTrainer = trainerDAO.select(trainer.getUserName());
+
+        if (optionalTrainer.isPresent()) {
+            Trainer updatedTrainer = optionalTrainer.get();
+
+            if(updatedTrainer.getFirstName().equals(trainer.getFirstName()) && updatedTrainer.getLastName().equals(trainer.getLastName())){
+
+                updatedTrainer.setUserName(trainer.getUserName());
+
+            } else {
+
+                updatedTrainer.setUserName(createValidUserName(trainer));
+                updatedTrainer.setFirstName(trainer.getFirstName());
+                updatedTrainer.setLastName(trainer.getLastName());
+
+            }
+
+
+            updatedTrainer.setIsActive(trainer.isActive());
+            updatedTrainer.setSpecialization(trainer.getSpecialization());
+
+            trainerDAO.update(updatedTrainer);
+
+//            logger.info("Trainer updated with id {}", trainer.getId());
+
+        } else {
+//            logger.info("No such element present in the store Trainer with userName {}", trainer.getUserName());
+            throw new RuntimeException("No such element present in the Trainer store");
+        }
     }
 
     public Trainer select(String userName) {

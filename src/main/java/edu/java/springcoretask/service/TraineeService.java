@@ -18,7 +18,9 @@ public class TraineeService {
         trainee.setUserName(createValidUserName(trainee));
         trainee.setPassword(PasswordGenerator.generatePassword());
         trainee.setIsActive(true);
+
         traineeDAO.create(trainee);
+
         logger.info("Trainee created with id {}", trainee.getId());
     }
 

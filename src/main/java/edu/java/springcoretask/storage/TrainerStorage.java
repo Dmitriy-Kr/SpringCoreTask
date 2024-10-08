@@ -17,6 +17,9 @@ public class TrainerStorage extends AbstractUserStorage<Trainer> {
 
     @Override
     public Optional<Trainer> getByUserName(String userName) {
-        return storage.values().stream().filter(e -> userName.equals(e.getUserName())).findAny();
+
+        Optional<Trainer> foundTrainer = storage.values().stream().filter(e -> userName.equals(e.getUserName())).findAny();
+
+        return foundTrainer.map(Trainer::new);
     }
 }

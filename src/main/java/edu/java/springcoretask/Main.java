@@ -51,17 +51,20 @@ public class Main {
 
         System.out.println(traineeService.select("Shannon.Velazquez"));
 
+
         System.out.println("--------------------- Find Trainer by username ------------------------------");
 
         TrainerService trainerService = context.getBean("trainerService", TrainerService.class);
 
         System.out.println(trainerService.select("Frazier.Richards"));
 
+
         System.out.println("--------------------- Find Trainings by username ------------------------------");
 
         TrainingService trainingService = context.getBean("trainingService", TrainingService.class);
 
         System.out.println(trainingService.select("Allyson.Bauer"));
+
 
         System.out.println("--------------------- Create Trainee ------------------------------");
 
@@ -83,6 +86,7 @@ public class Main {
             System.out.println(showTrainee);
         }
 
+
         System.out.println("--------------------- Update Trainee ------------------------------");
 
         Trainee updatedTrainee = traineeService.select("Igor.Ivanov");
@@ -97,6 +101,7 @@ public class Main {
             System.out.println(showTrainee);
         }
 
+
         System.out.println("--------------------- Delete Trainee ------------------------------");
 
         Trainee deleteTrainee = traineeService.select("Igor.Petrov");
@@ -106,6 +111,7 @@ public class Main {
         for (Trainee showTrainee : traineeStorage.getAllValues()) {
             System.out.println(showTrainee);
         }
+
 
         System.out.println("--------------------- Create Trainer ------------------------------");
 
@@ -130,5 +136,24 @@ public class Main {
         for (Trainer trainer1 : trainerStorage.getAllValues()) {
             System.out.println(trainer1);
         }
+
+
+        System.out.println("--------------------- Update Trainer ------------------------------");
+
+        Trainer updatedTrainer = trainerService.select("Samanta.Serova");
+
+        updatedTrainer.setLastName("Bronks");
+
+        trainerService.update(updatedTrainer);
+
+        System.out.println("updated trainer " + trainerService.select("Samanta.Bronks"));
+
+        for (Trainer showTrainer : trainerStorage.getAllValues()) {
+            System.out.println(showTrainer);
+        }
+
+        System.out.println("--------------------- Create Training ------------------------------");
+
+
     }
 }

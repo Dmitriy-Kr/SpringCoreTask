@@ -22,6 +22,11 @@ public class Trainer extends User {
         this.specialization = specialization;
     }
 
+    public Trainer(Trainer trainer) {
+        super(trainer.getId(), trainer.getFirstName(), trainer.getLastName(), trainer.getUserName(), trainer.getPassword(), trainer.isActive());
+        this.specialization = trainer.specialization;
+    }
+
     public TrainingType getSpecialization() {
         return specialization;
     }
