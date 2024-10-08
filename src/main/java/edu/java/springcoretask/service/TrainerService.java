@@ -12,7 +12,7 @@ import java.util.Optional;
 public class TrainerService {
     @Autowired
     private TrainerDAO trainerDAO;
-    private static Logger logger = LoggerFactory.getLogger(TraineeService.class);
+    private static Logger logger = LoggerFactory.getLogger(TrainerService.class);
 
     public void create(Trainer trainer) {
         trainer.setUserName(createValidUserName(trainer));
