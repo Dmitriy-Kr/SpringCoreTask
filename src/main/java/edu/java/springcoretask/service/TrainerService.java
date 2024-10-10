@@ -25,10 +25,9 @@ public class TrainerService {
     }
 
     public void update(Trainer trainer) {
-        Optional<Trainer> optionalTrainer = trainerDAO.select(trainer.getUserName());
+        Trainer updatedTrainer = select(trainer.getUserName());
 
-        if (optionalTrainer.isPresent()) {
-            Trainer updatedTrainer = optionalTrainer.get();
+        if (updatedTrainer.getId() >= 0) {
 
             if(updatedTrainer.getFirstName().equals(trainer.getFirstName()) && updatedTrainer.getLastName().equals(trainer.getLastName())){
 
@@ -41,7 +40,6 @@ public class TrainerService {
                 updatedTrainer.setLastName(trainer.getLastName());
 
             }
-
 
             updatedTrainer.setIsActive(trainer.isActive());
             updatedTrainer.setSpecialization(trainer.getSpecialization());

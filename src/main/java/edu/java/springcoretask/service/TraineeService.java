@@ -28,7 +28,7 @@ public class TraineeService {
 
         Trainee updatedTrainee = select(trainee.getUserName());
 
-        if (updatedTrainee.getId() < 0) {
+        if (updatedTrainee.getId() >= 0) {
 
             if(updatedTrainee.getFirstName().equals(trainee.getFirstName()) && updatedTrainee.getLastName().equals(trainee.getLastName())){
 
