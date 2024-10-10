@@ -1,0 +1,79 @@
+package edu.java.springcoretask.service;
+
+import edu.java.springcoretask.dao.TrainerDAO;
+import edu.java.springcoretask.entity.Trainee;
+import edu.java.springcoretask.entity.Trainer;
+import edu.java.springcoretask.entity.TrainingType;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.time.LocalDate;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+@ExtendWith(MockitoExtension.class)
+class TrainerServiceTest {
+    @InjectMocks
+    private TrainerService trainerService;
+    @Mock
+    private TrainerDAO trainerDAO;
+
+    @Test
+    void testCreate() {
+
+        Trainer trainer = new Trainer("Anton", "Red", new TrainingType("yoga"));
+
+        Mockito.when(trainerDAO.create(trainer)).thenReturn(true);
+
+        Mockito.when(trainerDAO.select(anyString()))
+                .thenReturn(Optional.of(trainer))
+                .thenReturn(Optional.of(trainer))
+                .thenReturn(Optional.of(trainer))
+                .thenReturn(Optional.empty());
+
+        trainerService.create(trainer);
+
+        assertEquals("Anton.Red2", trainer.getUserName());
+        assertEquals(10, trainer.getPassword().length());
+    }
+
+    @Test
+    void noTrainerFounded_whenUpdate_shouldThrowException() {
+
+        Trainer trainer = new Trainer("Anton", "Red", new TrainingType("yoga"));
+
+        Mockito.when(trainerDAO.select(anyString())).thenReturn(Optional.empty());
+        assertThrows(RuntimeException.class, () -> trainerService.update(trainer));
+    }
+
+    @Test
+    void testUpdate() {
+
+        Trainer updatedTrainer = new Trainer(32L, "Igor", "Ivanov",
+                "Igor.Ivanov", "aaahj5yto9", false, new TrainingType("yoga"));
+
+        Mockito.when(trainerDAO.select(anyString()))
+                .thenReturn(Optional.of(new Trainer(32L, "Igor", "Ivanov",
+                        "Igor.Ivanov", "12ghj5yto8", true, new TrainingType("martial arts"))));
+
+        trainerService.update(updatedTrainer);
+
+        final ArgumentCaptor<Trainer> captor = ArgumentCaptor.forClass(Trainer.class);
+
+        verify(trainerDAO, times(1)).update(captor.capture());
+
+        assertFalse(captor.getValue().isActive());
+
+        assertEquals(new TrainingType("yoga"), captor.getValue().getSpecialization());
+
+    }
+}
