@@ -91,4 +91,55 @@ class TraineeServiceTest {
         assertEquals("Denis.Ivanov", captor.getValue().getUserName());
 
     }
+
+    @Test
+    void givenTraineeHasDifferentLastName_whenUpdate_shouldChangeUserName() {
+
+        Trainee updatedTrainee = new Trainee(32L, "Igor", "Schmidt",
+                "Igor.Ivanov", "aaahj5yto9", false, LocalDate.parse("1999-10-05"), "Simonova str 7/15");
+
+        Mockito.when(traineeDAO.select(anyString()))
+                .thenReturn(Optional.of(new Trainee(32L, "Igor", "Ivanov",
+                        "Igor.Ivanov", "12ghj5yto8", true, LocalDate.parse("1999-10-05"), "West Baker str 31")))
+                .thenReturn(Optional.empty());
+
+        traineeService.update(updatedTrainee);
+
+        final ArgumentCaptor<Trainee> captor = ArgumentCaptor.forClass(Trainee.class);
+
+        verify(traineeDAO, times(1)).update(captor.capture());
+
+        assertFalse(captor.getValue().isActive());
+
+        assertEquals("Simonova str 7/15", captor.getValue().getAddress());
+
+        assertEquals("Igor.Schmidt", captor.getValue().getUserName());
+
+    }
+
+    @Test
+    void select_findTrainee_returnTrainee(){
+
+        Trainee checkTrainee = new Trainee(32L, "Igor", "Ivanov",
+                "Igor.Ivanov", "12ghj5yto8", true, LocalDate.parse("1999-10-05"), "West Baker str 31");
+
+        Mockito.when(traineeDAO.select(anyString()))
+                .thenReturn(Optional.of(new Trainee(32L, "Igor", "Ivanov",
+                        "Igor.Ivanov", "12ghj5yto8", true, LocalDate.parse("1999-10-05"), "West Baker str 31")));
+
+        Trainee foundTrainee = traineeService.select("Igor.Ivanov");
+
+        assertEquals(checkTrainee, foundTrainee);
+    }
+
+    @Test
+    void select_notFindTrainee_returnTraineeWithNegativeId(){
+
+        Mockito.when(traineeDAO.select(anyString()))
+                .thenReturn(Optional.empty());
+
+        Trainee foundTrainee = traineeService.select("Igor.Ivanov");
+
+        assertTrue(foundTrainee.getId() < 0);
+    }
 }
