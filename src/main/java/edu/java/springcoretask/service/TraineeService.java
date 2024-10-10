@@ -26,10 +26,9 @@ public class TraineeService {
 
     public void update(Trainee trainee) {
 
-        Optional<Trainee> optionalTrainee = traineeDAO.select(trainee.getUserName());
+        Trainee updatedTrainee = select(trainee.getUserName());
 
-        if (optionalTrainee.isPresent()) {
-            Trainee updatedTrainee = optionalTrainee.get();
+        if (updatedTrainee.getId() < 0) {
 
             if(updatedTrainee.getFirstName().equals(trainee.getFirstName()) && updatedTrainee.getLastName().equals(trainee.getLastName())){
 
