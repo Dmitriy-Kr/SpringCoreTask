@@ -3,6 +3,7 @@ package edu.java.springcoretask.service;
 import edu.java.springcoretask.dao.impl.TrainerDAOImpl;
 import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.entity.TrainingType;
+import edu.java.springcoretask.service.impl.TrainerServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -21,7 +22,7 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class TrainerServiceTest {
     @InjectMocks
-    private TrainerService trainerService;
+    private TrainerServiceImpl trainerService;
     @Mock
     private TrainerDAOImpl trainerDAO;
 

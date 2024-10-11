@@ -2,6 +2,7 @@ package edu.java.springcoretask.service;
 
 import edu.java.springcoretask.dao.impl.TraineeDAOImpl;
 import edu.java.springcoretask.entity.Trainee;
+import edu.java.springcoretask.service.impl.TraineeServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
@@ -18,7 +19,7 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class TraineeServiceTest {
     @InjectMocks
-    private TraineeService traineeService;
+    private TraineeServiceImpl traineeService;
     @Mock
     private TraineeDAOImpl traineeDAO;
     private Trainee trainee = new Trainee("Igor", "Ivanov", LocalDate.parse("1999-10-05"), "Simonova str 7/15");

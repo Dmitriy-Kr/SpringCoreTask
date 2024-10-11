@@ -4,9 +4,12 @@ import edu.java.springcoretask.dao.TrainerDAO;
 import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.storage.TrainerStorage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-
+@Repository("trainerDAO")
+@DependsOn("trainerStorage")
 public class TrainerDAOImpl implements TrainerDAO {
     private TrainerStorage trainerStorage;
 

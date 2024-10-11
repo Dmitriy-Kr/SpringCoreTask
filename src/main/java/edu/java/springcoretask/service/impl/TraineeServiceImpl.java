@@ -1,16 +1,18 @@
 package edu.java.springcoretask.service.impl;
 
-import edu.java.springcoretask.dao.impl.TraineeDAOImpl;
+import edu.java.springcoretask.dao.TraineeDAO;
 import edu.java.springcoretask.entity.Trainee;
 import edu.java.springcoretask.service.TraineeService;
 import edu.java.springcoretask.utility.PasswordGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("traineeService")
 public class TraineeServiceImpl implements TraineeService {
     @Autowired
-    private TraineeDAOImpl traineeDAO;
+    private TraineeDAO traineeDAO;
     private static Logger logger = LoggerFactory.getLogger(TraineeServiceImpl.class);
 
     public void create(Trainee trainee) {
@@ -65,21 +67,4 @@ public class TraineeServiceImpl implements TraineeService {
         return traineeDAO.select(userName).orElse(new Trainee(-100));
     }
 
-//    private String createValidUserName(Trainee trainee) {
-//
-//        String userName = trainee.getFirstName() + "." + trainee.getLastName();
-//
-//        if (select(userName).getId() < 0) {
-//            return userName;
-//        }
-//
-//        for (long i = 0; i < Long.MAX_VALUE; i++) {
-//            StringBuilder newUserName = new StringBuilder(userName + i);
-//            if (select(newUserName.toString()).getId() < 0) {
-//                return newUserName.toString();
-//            }
-//        }
-//
-//        return userName;
-//    }
 }
