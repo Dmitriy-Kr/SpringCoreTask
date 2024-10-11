@@ -1,11 +1,17 @@
 package edu.java.springcoretask.config;
 
+import edu.java.springcoretask.dao.TraineeDAO;
+import edu.java.springcoretask.dao.TrainerDAO;
+import edu.java.springcoretask.dao.TrainingDAO;
 import edu.java.springcoretask.dao.impl.TraineeDAOImpl;
 import edu.java.springcoretask.dao.impl.TrainerDAOImpl;
 import edu.java.springcoretask.dao.impl.TrainingDAOImpl;
 import edu.java.springcoretask.service.TraineeService;
 import edu.java.springcoretask.service.TrainerService;
 import edu.java.springcoretask.service.TrainingService;
+import edu.java.springcoretask.service.impl.TraineeServiceImpl;
+import edu.java.springcoretask.service.impl.TrainerServiceImpl;
+import edu.java.springcoretask.service.impl.TrainingServiceImpl;
 import edu.java.springcoretask.storage.TraineeStorage;
 import edu.java.springcoretask.storage.TrainerStorage;
 import edu.java.springcoretask.storage.TrainingStorage;
@@ -21,12 +27,12 @@ public class SpringConfig {
         return new TraineeStorage();
     }
     @Bean
-    public TraineeDAOImpl traineeDAO(){
+    public TraineeDAO traineeDAO(){
         return new TraineeDAOImpl();
     }
     @Bean
     public TraineeService traineeService(){
-        return new TraineeService();
+        return new TraineeServiceImpl();
     }
 
     @Bean
@@ -35,12 +41,12 @@ public class SpringConfig {
     }
 
     @Bean
-    public TrainerDAOImpl trainerDAO(){
+    public TrainerDAO trainerDAO(){
         return new TrainerDAOImpl();
     }
     @Bean
     public TrainerService trainerService(){
-        return new TrainerService();
+        return new TrainerServiceImpl();
     }
 
     @Bean
@@ -48,11 +54,11 @@ public class SpringConfig {
         return new TrainingStorage();
     }
     @Bean
-    public TrainingDAOImpl trainingDAO(){
+    public TrainingDAO trainingDAO(){
         return new TrainingDAOImpl();
     }
     @Bean
     public TrainingService trainingService(){
-        return new TrainingService();
+        return new TrainingServiceImpl();
     }
 }
