@@ -9,6 +9,9 @@ import java.util.Arrays;
 import static org.passay.DigestDictionaryRule.ERROR_CODE;
 
 public class PasswordGenerator {
+    private PasswordGenerator() {
+    }
+
     public static String generatePassword() {
         org.passay.PasswordGenerator gen = new org.passay.PasswordGenerator();
         EnglishCharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
