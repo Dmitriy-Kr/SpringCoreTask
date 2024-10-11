@@ -17,6 +17,9 @@ import java.util.stream.Collectors;
 public class JsonToObject {
     private static final ObjectMapper objectMapper = getObjectMapper();
 
+    private  JsonToObject() {
+    }
+
     private static ObjectMapper getObjectMapper(){
         ObjectMapper objectMapperConfig = new ObjectMapper();
         objectMapperConfig.registerModule(new JavaTimeModule());
