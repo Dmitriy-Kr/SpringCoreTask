@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 
 public class TrainerDAOImpl implements TrainerDAO {
-    @Autowired
     private TrainerStorage trainerStorage;
+
+    @Autowired
+    public void setTrainerStorage(TrainerStorage trainerStorage) {
+        this.trainerStorage = trainerStorage;
+    }
 
     /**
      * Place the Trainee object into the Trainee storage and set the returned key to the Trainee.

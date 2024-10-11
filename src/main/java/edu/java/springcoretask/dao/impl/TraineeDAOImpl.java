@@ -4,12 +4,16 @@ import edu.java.springcoretask.dao.TraineeDAO;
 import edu.java.springcoretask.entity.Trainee;
 import edu.java.springcoretask.storage.TraineeStorage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 
 import java.util.Optional;
 
 public class TraineeDAOImpl implements TraineeDAO {
-    @Autowired
     private TraineeStorage traineeStorage;
+    @Autowired
+    public void setTraineeStorage(TraineeStorage traineeStorage) {
+        this.traineeStorage = traineeStorage;
+    }
 
     /**
      * Place the Trainee object into the Trainee storage and set the returned key to the Trainee.

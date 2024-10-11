@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public class TrainingDAOImpl implements TrainingDAO {
-    @Autowired
     private TrainingStorage trainingStorage;
+    @Autowired
+    public void setTrainingStorage(TrainingStorage trainingStorage) {
+        this.trainingStorage = trainingStorage;
+    }
 
     public boolean create(Training training) {
         long key = trainingStorage.put(training);
