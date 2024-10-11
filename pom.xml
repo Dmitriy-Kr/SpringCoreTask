@@ -3,7 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.java.springcoretask</groupId>
   <artifactId>SpringCoreTask</artifactId>
-  <packaging>war</packaging>
+<!--  <packaging>war</packaging>-->
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
@@ -80,5 +81,40 @@
   </dependencies>
   <build>
     <finalName>SpringCoreTask</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/lib
+              </outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <!-- Build an executable JAR -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>edu.java.springcoretask.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import edu.java.springcoretask.entity.Training;
 import edu.java.springcoretask.entity.User;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class JsonToObject {
 
         List<T> result = null;
 
-        try (InputStream inputJson = new FileInputStream(path);){
+        try (InputStream inputJson = JsonToObject.class.getClassLoader().getResourceAsStream(path);){
 
             result = objectMapper.readValue(inputJson, listType);
 
@@ -56,6 +55,4 @@ public class JsonToObject {
         return trainingList.stream().collect(Collectors.toMap(Training::getId, Function.identity()));
 
     }
-
-
 }
