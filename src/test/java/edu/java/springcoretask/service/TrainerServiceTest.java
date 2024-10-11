@@ -1,7 +1,6 @@
 package edu.java.springcoretask.service;
 
-import edu.java.springcoretask.dao.TrainerDAO;
-import edu.java.springcoretask.entity.Trainee;
+import edu.java.springcoretask.dao.impl.TrainerDAOImpl;
 import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.entity.TrainingType;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +23,7 @@ class TrainerServiceTest {
     @InjectMocks
     private TrainerService trainerService;
     @Mock
-    private TrainerDAO trainerDAO;
+    private TrainerDAOImpl trainerDAO;
 
     @Test
     void testCreate() {

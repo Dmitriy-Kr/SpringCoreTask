@@ -1,8 +1,8 @@
 package edu.java.springcoretask.config;
 
-import edu.java.springcoretask.dao.TraineeDAO;
-import edu.java.springcoretask.dao.TrainerDAO;
-import edu.java.springcoretask.dao.TrainingDAO;
+import edu.java.springcoretask.dao.impl.TraineeDAOImpl;
+import edu.java.springcoretask.dao.impl.TrainerDAOImpl;
+import edu.java.springcoretask.dao.impl.TrainingDAOImpl;
 import edu.java.springcoretask.service.TraineeService;
 import edu.java.springcoretask.service.TrainerService;
 import edu.java.springcoretask.service.TrainingService;
@@ -21,8 +21,8 @@ public class SpringConfig {
         return new TraineeStorage();
     }
     @Bean
-    public TraineeDAO traineeDAO(){
-        return new TraineeDAO();
+    public TraineeDAOImpl traineeDAO(){
+        return new TraineeDAOImpl();
     }
     @Bean
     public TraineeService traineeService(){
@@ -35,8 +35,8 @@ public class SpringConfig {
     }
 
     @Bean
-    public TrainerDAO trainerDAO(){
-        return new TrainerDAO();
+    public TrainerDAOImpl trainerDAO(){
+        return new TrainerDAOImpl();
     }
     @Bean
     public TrainerService trainerService(){
@@ -48,8 +48,8 @@ public class SpringConfig {
         return new TrainingStorage();
     }
     @Bean
-    public TrainingDAO trainingDAO(){
-        return new TrainingDAO();
+    public TrainingDAOImpl trainingDAO(){
+        return new TrainingDAOImpl();
     }
     @Bean
     public TrainingService trainingService(){

@@ -1,17 +1,15 @@
 package edu.java.springcoretask.service;
 
-import edu.java.springcoretask.dao.TrainerDAO;
+import edu.java.springcoretask.dao.impl.TrainerDAOImpl;
 import edu.java.springcoretask.entity.Trainer;
 import edu.java.springcoretask.utility.PasswordGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Optional;
-
 public class TrainerService {
     @Autowired
-    private TrainerDAO trainerDAO;
+    private TrainerDAOImpl trainerDAO;
     private static Logger logger = LoggerFactory.getLogger(TrainerService.class);
 
     public void create(Trainer trainer) {

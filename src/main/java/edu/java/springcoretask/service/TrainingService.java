@@ -1,6 +1,6 @@
 package edu.java.springcoretask.service;
 
-import edu.java.springcoretask.dao.TrainingDAO;
+import edu.java.springcoretask.dao.impl.TrainingDAOImpl;
 import edu.java.springcoretask.entity.Training;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TrainingService {
     @Autowired
-    private TrainingDAO trainingDAO;
+    private TrainingDAOImpl trainingDAO;
     private static Logger logger = LoggerFactory.getLogger(TrainingService.class);
     public void create(Training training) {
         trainingDAO.create(training);

@@ -1,32 +1,15 @@
 package edu.java.springcoretask.dao;
 
 import edu.java.springcoretask.entity.Trainer;
-import edu.java.springcoretask.storage.TrainerStorage;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-public class TrainerDAO {
-    @Autowired
-    private TrainerStorage trainerStorage;
+public interface TrainerDAO {
 
-    /**
-     * Place the Trainee object into the Trainee storage and set the returned key to the Trainee.
-     *
-     * @param trainer
-     * @return boolean
-     */
-    public boolean create(Trainer trainer) {
-        long key = trainerStorage.put(trainer);
-        trainer.setId(key);
-        return true;
-    }
+    boolean create(Trainer trainer);
 
-    public void update(Trainer trainer) {
-        trainerStorage.update(trainer.getId(), trainer);
-    }
+    void update(Trainer trainer);
 
-    public Optional<Trainer> select(String userName) {
-        return trainerStorage.getByUserName(userName);
-    }
+    Optional<Trainer> select(String userName);
+
 }
